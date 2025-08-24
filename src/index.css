@@ -2,26 +2,200 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-   
+    /* Brand colors extracted from OpenRouter */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+
+    /* Slate color system for OpenRouter */
+    --slate-1: 210 20% 98%;
+    --slate-3: 210 16% 93%;
+    --slate-4: 208 13% 88%;
+    --slate-6: 210 12% 78%;
+    --slate-7: 210 10% 71%;
+    --slate-10: 210 6% 46%;
+    --slate-11: 215 14% 34%;
+    --slate-12: 220 13% 9%;
+
+    /* Green colors for positive metrics */
+    --green-3: 143 77% 95%;
+    --green-9: 142 71% 45%;
+    --green-10: 142 76% 36%;
+
+    /* Red colors for negative metrics */
+    --red-10: 358 75% 59%;
   }
 
   .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .text-slate-3 {
+    color: hsl(var(--slate-3));
+  }
+  
+  .text-slate-6 {
+    color: hsl(var(--slate-6));
+  }
+  
+  .text-slate-7 {
+    color: hsl(var(--slate-7));
+  }
+  
+  .text-slate-10 {
+    color: hsl(var(--slate-10));
+  }
+  
+  .text-slate-11 {
+    color: hsl(var(--slate-11));
+  }
+  
+  .text-slate-12 {
+    color: hsl(var(--slate-12));
+  }
+
+  .bg-slate-1 {
+    background-color: hsl(var(--slate-1));
+  }
+  
+  .bg-slate-3 {
+    background-color: hsl(var(--slate-3));
+  }
+  
+  .bg-slate-4 {
+    background-color: hsl(var(--slate-4));
+  }
+
+  .border-slate-6 {
+    border-color: hsl(var(--slate-6));
+  }
+
+  .border-slate-7 {
+    border-color: hsl(var(--slate-7));
+  }
+
+  .hover\:border-slate-7:hover {
+    border-color: hsl(var(--slate-7));
+  }
+
+  .hover\:shadow-slate-6:hover {
+    --tw-shadow-color: hsl(var(--slate-6));
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
+  .text-green-10 {
+    color: hsl(var(--green-10));
+  }
+
+  .text-red-10 {
+    color: hsl(var(--red-10));
+  }
+
+  .bg-green-3 {
+    background-color: hsl(var(--green-3));
+  }
+
+  .text-green-9 {
+    color: hsl(var(--green-9));
+  }
+
+  .max-w-screen-4xl {
+    max-width: 1440px;
+  }
+}
+
+/* Floating animations for provider icons */
+@keyframes float0 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-2deg); } }
+@keyframes float1 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
+@keyframes float2 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(-1deg); } }
+@keyframes float3 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-6px) rotate(2deg); } }
+@keyframes float4 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-14px) rotate(-2deg); } }
+@keyframes float5 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
+@keyframes float6 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-11px) rotate(-1deg); } }
+@keyframes float7 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-7px) rotate(2deg); } }
+@keyframes float8 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-13px) rotate(-1deg); } }
+@keyframes float9 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-5px) rotate(1deg); } }
+@keyframes float10 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(-2deg); } }
+@keyframes float11 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+@keyframes float12 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-6px) rotate(-1deg); } }
+@keyframes float13 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+@keyframes float14 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-9px) rotate(-1deg); } }
+@keyframes float15 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-11px) rotate(1deg); } }
+@keyframes float16 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-7px) rotate(-2deg); } }
+@keyframes float17 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-13px) rotate(1deg); } }
+@keyframes float18 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-5px) rotate(-1deg); } }
+@keyframes float19 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
+@keyframes float20 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
+@keyframes float21 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-6px) rotate(1deg); } }
+@keyframes float22 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-12px) rotate(-2deg); } }
+@keyframes float23 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
+@keyframes float24 { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-11px) rotate(-1deg); } }
